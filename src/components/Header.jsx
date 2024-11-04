@@ -1,8 +1,8 @@
 "use client";
 import { Link as ScrollLink } from "react-scroll";
-import Logo from "./Logo";
-import Nav from "./Nav";
-import Socials from "./Socials";
+import Logo from "@/components/Logo";
+import Nav from "@/components/Nav";
+import Socials from "@/components/Socials";
 
 const Header = () => {
     return (

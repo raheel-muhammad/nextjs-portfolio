@@ -5,8 +5,8 @@ import { CgMenuGridR } from "react-icons/cg";
 import { useMediaQuery } from "react-responsive";
 import { FiMapPin, FiPhoneCall, FiMail } from "react-icons/fi";
 
-import Nav from "./Nav";
-import Socials from "./Socials";
+import Nav from "@/components/Nav";
+import Socials from "@/components/Socials";
 
 const FixedMenu = () => {
     const [showMenuButton, setShowMenuButton] = useState(false);
