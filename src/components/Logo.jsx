@@ -1,4 +1,4 @@
-import Link from "next/Link";
+import Link from "next/link";
 
 const Logo = ({ light = false }) => {
     const colorClass = light ? "text-white" : "text-primary";

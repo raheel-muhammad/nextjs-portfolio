@@ -1,5 +1,5 @@
 "use-client";
-import Link from "next/Link";
+import Link from "next/link";
 import { FaFacebookF, FaTwitter, FaLinkedin } from "react-icons/fa";
 import { RiInstagramFill } from "react-icons/ri";
 
