@@ -21,7 +21,7 @@ const Home = () => {
 
 
   return (
-    <div className='w-full overflow-hidden'>
+    <div className='w-full h-full m-auto overflow-hidden'>
       <Hero />
       <FixedMenu />
       <Services />

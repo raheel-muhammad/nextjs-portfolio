@@ -5,7 +5,6 @@ import AnimatedText from "./AnimatedText";
 import Image from "next/image";
 import { FaCheckCircle } from "react-icons/fa";
 
-
 const Contact = () => {
     const [state, handleSubmit] = useForm("xpwzpjav");
     const [formData, setFormData] = useState({
@@ -16,11 +15,11 @@ const Contact = () => {
         message: "",
     });
 
-    const [showIcon, setShowIcon] = useState(false)
+    const [showIcon, setShowIcon] = useState(false);
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
-    }
+    };
 
     useEffect(() => {
         if (state.succeeded) {
@@ -36,59 +35,57 @@ const Contact = () => {
                 setShowIcon(false);
             }, 3000);
 
-            return () => clearTimeout(timer)
-
+            return () => clearTimeout(timer);
         }
     }, [state.succeeded]);
-
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
         handleSubmit(formData);
-    }
+    };
 
     return (
-        <section className='pt-8 xl:pt-12 pb-12' id='contact'>
-            <div className="container mx-auto">
+        <section className="pt-8 xl:pt-12 pb-12" id="contact">
+            <div className="container mx-auto px-4 md:px-8">
                 <div className="flex flex-col items-center xl:flex-row gap-16">
                     <div className="flex-1 mx-auto xl:mx-0 flex flex-col ">
-                        <AnimatedText text="Let's Work Together" textStyles="h2 mb-12 text-center xl:text-left" />
+                        <AnimatedText text="Let's Work Together" textStyles="h2 mb-8 text-center xl:text-left text-3xl " />
                         <form onSubmit={handleFormSubmit} className="flex flex-col gap-6 w-full max-w-[480px]">
-                            <div className="gap-8 flex">
+                            <div className="gap-4 md:gap-8 flex flex-col md:flex-row">
                                 <div className="flex-1">
-                                    <label htmlFor="firstname" className="block mb-2 text-sm font-medium text-primary">
+                                    <label htmlFor="firstname" className="block mb-2 text-sm md:text-base font-medium text-primary">
                                         First Name <span className="text-accent">*</span>
                                     </label>
                                     <input onChange={handleChange} type="text" id="firstname" name="firstname" value={formData.firstname} className="input" placeholder="First Name" required />
                                 </div>
                                 <div className="flex-1">
-                                    <label htmlFor="lastname" className="block mb-2 text-sm font-medium text-primary">
+                                    <label htmlFor="lastname" className="block mb-2 text-sm md:text-base font-medium text-primary">
                                         Last Name <span className="text-accent">*</span>
                                     </label>
                                     <input onChange={handleChange} type="text" id="lastname" name="lastname" value={formData.lastname} className="input" placeholder="Last Name" required />
                                 </div>
                             </div>
                             <div className="w-full">
-                                <label htmlFor="email" className="block mb-2 text-sm font-medium text-primary">
+                                <label htmlFor="email" className="block mb-2 text-sm md:text-base font-medium text-primary">
                                     Email <span className="text-accent">*</span>
                                 </label>
                                 <input onChange={handleChange} type="text" id="email" name="email" value={formData.email} className="input" placeholder="youremail@email.com" required />
                                 <ValidationError prefix="Email" field="email" errors={state.errors} />
                             </div>
                             <div>
-                                <label htmlFor="phone" className="block mb-2 text-sm font-medium text-primary">
+                                <label htmlFor="phone" className="block mb-2 text-sm md:text-base font-medium text-primary">
                                     Phone number <span className="text-accent">*</span>
                                 </label>
                                 <input onChange={handleChange} type="text" id="phone" name="phone" value={formData.phone} className="input" placeholder="+123 456 789" />
                             </div>
                             <div>
-                                <label htmlFor="message" className="block mb-2 text-sm font-medium text-primary">
+                                <label htmlFor="message" className="block mb-2 text-sm md:text-base font-medium text-primary">
                                     Message <span className="text-accent">*</span>
                                 </label>
                                 <textarea onChange={handleChange} type="text" id="message" name="message" value={formData.message} className="input" placeholder="Leave me a message..." rows={5} required />
                                 <ValidationError prefix="Message" field="message" errors={state.errors} />
                             </div>
-                            <button type="submit" disabled={state.submitting} className="btn btn-accent flex items-center justify-center gap-2">
+                            <button type="submit" disabled={state.submitting} className="btn btn-accent flex items-center justify-center gap-2 py-2 px-4 md:py-3 md:px-6 text-sm md:text-base font-semibold transition-all duration-200 ease-in-out">
                                 {state.submitting ? (
                                     <span>Sending...</span>
                                 ) : (
@@ -100,14 +97,13 @@ const Contact = () => {
                             </button>
                         </form>
                     </div>
-                    <div className="hidden xl:flex relative w-[577px] h-[664px] rounded-lg overflow-hidden">
-                        <Image src="/assets/contact/img.png"
-                            className="object-cover" fill quality={100} alt="" />
+                    <div className="hidden xl:flex relative w-full max-w-[577px] h-[300px] md:h-[400px] lg:h-[500px] xl:h-[664px] rounded-lg overflow-hidden">
+                        <Image src="/assets/contact/img.png" className="object-cover" fill quality={100} alt="Contact" />
                     </div>
                 </div>
             </div>
         </section>
-    )
-}
+    );
+};
 
-export default Contact
+export default Contact;
